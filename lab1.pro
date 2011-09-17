@@ -1,3 +1,6 @@
+% vim: filetype=prolog
+% Count numbers that are doubled odd numbers.
+
 :- initialization(main).
 
 main :-
