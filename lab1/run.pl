@@ -1,3 +1,4 @@
+#!/usr/bin/swipl -f
 % vim: filetype=prolog
 % Count numbers that are doubled odd numbers.
 
