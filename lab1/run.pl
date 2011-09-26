@@ -1,4 +1,4 @@
-#!/usr/bin/swipl -f
+#!/usr/bin/swipl -tty -f
 % vim: filetype=prolog
 % Count numbers that are doubled odd numbers.
 
@@ -39,10 +39,12 @@ count(X, D) :-
 
 showResult(X, F) :-
   new(D, dialog('RESULT')),
-  new(B, button(X, message(D, destroy))),
+  new(B, button('Close', message(D, destroy))),
   new(V, view(F)),
-  send(D, append(B)),
+  send(D, append(text('The result is'))),
+  send(D, append(text(X), right)),
   send(D, append(V, below)),
+  send(D, append(B, below)),
   send(V, load(F)),
   send(D, open).
 
