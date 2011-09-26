@@ -18,22 +18,23 @@ main :-
   send(Dialog, below(Browser)),
   send(Frame, open).
 
-processfile(X) :-
-  see(X),
-  count(0, X),
+processfile(F) :-
+  see(F),
+  count(0, N),
+  showResult(N, F),
   seen.
 
-count(X, F) :-
+count(X, D) :-
   read(N),
   (
     N == end_of_file ->
-      showResult(X, F);
+      D is X;
       (
         isOurNumber(N) ->
           X1 is X + 1;
           X1 is X
       ),
-      count(X1, F)
+      count(X1, D)
   ).
 
 showResult(X, F) :-
@@ -52,6 +53,4 @@ isOurNumber(X) :-
 
 isEven(X) :-
   Y is X mod 2,
-  isZero(Y).
-
-isZero(0).
+  Y =:= 0.
