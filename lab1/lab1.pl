@@ -6,8 +6,12 @@ main :-
   new(Frame, frame('Select file')),
   new(Browser, browser),
   new(Dialog, dialog),
-  send(Dialog, append(button('Process!', message(@prolog, processfile, Browser?selection?key)))),
-  send(Dialog, append(button('Quit', message(@prolog, halt)))),
+  send(Dialog, append(button(
+        'Process!', message(@prolog, processfile, Browser?selection?key))
+  )),
+  send(Dialog, append(button(
+        'Quit', message(@prolog, halt))
+  )),
   send(Browser, members(Dir?files)),
   send(Frame, append(Browser)),
   send(Dialog, below(Browser)),
